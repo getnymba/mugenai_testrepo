@@ -25,9 +25,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: test
 
       - name: Set environment 
-        run: echo "ENVIRONMENT=${{ github.event.inputs.environment }}" >> $ENV
+        run: echo "ENVIRONMENT=${{ github.event.inputs.environment }}" > $ENV
 
       - name: Build the cypress docker image
         working-directory: ./test_cypress

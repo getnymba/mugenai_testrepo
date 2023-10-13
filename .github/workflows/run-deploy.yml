@@ -7,7 +7,7 @@ on:
       - stg
       - dev
     paths-ignore:
-      - '.github/workflows/**'
+      - '.github/workflows/run-cypress.yml'
   workflow_dispatch:
 
 permissions:

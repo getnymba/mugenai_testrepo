@@ -1,16 +1,16 @@
-name: Cypress CI (${{ github.event.inputs.environment }})
+name: Cypress CI
 
 on:
   workflow_dispatch:
     inputs:
       environment:
         description: 'Environment to run tests against'
+        type: choice
         options:
           - dev
           - stg
           - prod
         required: true
-        default: dev
 
 permissions:
     id-token: write
@@ -24,6 +24,9 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: test
+
+      - name: Set environment 
+        run: echo "ENVIRONMENT=${{ github.event.inputs.environment }}" >> $ENV
 
       - name: Build the cypress docker image
         working-directory: ./test_cypress

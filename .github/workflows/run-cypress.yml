@@ -1,0 +1,37 @@
+name: Cypress CI
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to run tests against'
+        type: environment
+        options:
+          - dev
+          - stg
+          - prod
+        required: true
+
+permissions:
+    id-token: write
+    contents: read
+
+jobs:
+  cypress-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: test
+
+      - name: Build the cypress docker image
+        working-directory: ./test_cypress
+        run: docker build . --file Dockerfile --tag cypress-ci
+      
+      - name: Run
+        working-directory: ./test_cypress
+        run: docker run cypress-ci

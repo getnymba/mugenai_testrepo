@@ -1,4 +1,4 @@
-name: Cypress CI ({{ inputs.environment }})
+name: Cypress CI (${{ inputs.environment }})
 
 on:
   workflow_dispatch:

@@ -1,0 +1,23 @@
+name: deploy
+
+on:
+  push:
+    branches:
+      - main
+      - release/**
+      - dev
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  run-deploy:
+    runs-on: ubuntu-latest
+      steps:
+        - name: Run deploy
+          shell: bash
+          run: |
+            echo "SUCCESS"
+g

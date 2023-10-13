@@ -6,6 +6,8 @@ on:
       - main
       - stg
       - dev
+    paths-ignore:
+      - 'github/workflow'
   workflow_dispatch:
 
 permissions:

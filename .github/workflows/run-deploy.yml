@@ -7,7 +7,7 @@ on:
       - stg
       - dev
     paths-ignore:
-      - 'github/workflow'
+      - '.github/workflows'
   workflow_dispatch:
 
 permissions:

@@ -1,4 +1,4 @@
-name: Cypress CI (${{ inputs.environment }})
+name: Cypress CI (${{ github.event.inputs.environment }})
 
 on:
   workflow_dispatch:
@@ -10,6 +10,7 @@ on:
           - stg
           - prod
         required: true
+        default: dev
 
 permissions:
     id-token: write

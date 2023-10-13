@@ -28,6 +28,9 @@ jobs:
         with:
           ref: test
 
+      - name: Testing env
+         run: echo $ENVIRONMENT
+
       - name: Build the cypress docker image
         working-directory: ./test_cypress
         run: docker build . --file Dockerfile --tag cypress-ci

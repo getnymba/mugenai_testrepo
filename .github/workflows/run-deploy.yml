@@ -2,9 +2,9 @@ name: deploy
 
 on:
   push:
-    branches:
+    branches: 
       - main
-      - release/**
+      - 'release/**'
       - dev
   workflow_dispatch:
 
@@ -15,8 +15,9 @@ permissions:
 jobs:
   run-deploy:
     runs-on: ubuntu-latest
-      steps:
-        - name: Run deploy
-          shell: bash
-          run: |
-            echo "SUCCESS"
+    
+    steps:
+      - name: Run deploy
+        shell: bash
+        run: |
+          echo "SUCCESS"

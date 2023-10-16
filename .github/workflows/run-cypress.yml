@@ -28,7 +28,7 @@ jobs:
         with:
           ref: test
 
-      - name: Setting environment
+      - name: Setting a environment
         run: export ENVIRONMENT="${{ env.ENVIRONMENT }}"
 
       - name: Build the cypress docker image
